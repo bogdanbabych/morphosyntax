@@ -5,7 +5,7 @@ Created on 10 Nov 2016
 '''
 
 
-import numpy as np
+# import numpy as np
 
 class clCognateMatch(object):
 	'''
