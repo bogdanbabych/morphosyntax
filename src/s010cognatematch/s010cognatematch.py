@@ -4,6 +4,9 @@ Created on 10 Nov 2016
 @author: bogdan
 '''
 
+
+import numpy as np
+
 class clCognateMatch(object):
 	'''
 	classdocs
