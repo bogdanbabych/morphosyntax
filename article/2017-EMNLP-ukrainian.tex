@@ -1,0 +1,115 @@
+\documentclass[11pt]{article}
+\usepackage{standard}
+\usepackage{acl2013}
+%% \usepackage{gentium}
+%% \usepackage[russian,english]{textcomp}
+\usepackage{times}
+\usepackage{apalike}
+
+\renewcommand{\R}[1]{{\fontfamily{iwonac}\foreignlanguage{russian}{#1}}}
+
+                                                                                        
+\title{Expanding morphosyntactic resources for Ukrainian from cognate Slavonic languages}
+\author{
+}
+
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+  This paper describes a method for developing resources for POS tagging and dependency parsing for Ukrainian from resources available for other Slavonic languages.
+  This is the first publicly available model that provides accurate POS tagging.
+\end{abstract}
+
+
+\section{Introduction}
+Tools for POS tagging and parsing are among the most basic tools needed for Natural Language Processing.  The modern method of their development implies training generic tools on a large sample of annotated materials.
+
+The annotation scheme can vary from the Penn tagset, commonly used for processing English, to Multext, which covers a wide range languages \cite{erjavec10} to the Universal Dependencies (UD) tagset \cite{nivre16}.
+
+
+The tagsets can be usually mutually converted, even with some loss of information if a more specific category is mapped to a less specific one \cite{zeman08}.
+
+\begin{table*}
+\begin{tabular}{lll}
+\textbf{Word}	& \textbf{MTE}	& \textbf{UD tag}\\\hline
+\R{делается}	& Vmip3s-m-e	& VERB|Aspect=Imp|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin\\
+\R{из}		& Sp-g  	& ADP\\
+\R{стали}	& Ncfsgn	& NOUN|Animacy=Inan|Case=Gen|Gender=Fem|Number=Sing\\
+\end{tabular}
+\caption{MTE and UD tagsets compared}
+\label{tabAnnotationExample}
+\end{table*}
+
+Variations in tagsets: participles as verbs or as adjectives.  In conversion from the MTE tagset into the UD one, information about the case governing model for the prepositions is lost, \code{Sp-g} in \reftab{tabAnnotationExample} indicates that the preposition in this sentence expects the genitive case of the following noun phrase.
+
+While some languages within  the existing training resources in the UD set have sizeable UD treebanks for training, e.g., nearly 2 million tokens for Czech and 1 million for Russian, there are little or no training resources available for other languages, including Ukrainian, see \reftab{tabCorpora}.  
+
+Empirical investigation on the advantages of noisy sources \cite{hovy14}.
+
+\section{Methodology}
+
+\begin{itemize}
+\item translation of cognate words into Ukrainian \cite{babych16} (\textbf{by November 2016});
+\item conversion of existing UD corpora into Ukrainian \cite{reddy11kannada} (\textbf{by December 2016});
+\item correcting the biases for systemic morphological mismatches (\textbf{by February 2017});
+\end{itemize}
+
+For training we experimented with several frameworks:
+\begin{itemize}
+\item TnT, a classic HMM tagger \cite{brants00};
+\item RF Tagger, a decision-tree approach to large tagsets \cite{schmid08};
+\item Marmot, a CRF-based tagger \cite{muller13};
+\item UDpipe, a perceptron-based tagger and transition parser \cite{straka16};
+\item MaltParser, an SVM-based transition parser \cite{nivre06malt}
+\end{itemize}
+
+In addition we wanted to investigate the influence of the typological language distance.    Typologically Ukrainian is in the group of the East Slavonic languages.  However, very substantial resources available for Czech (a West Slavonic language) make it interesting to investigate the effect of having a larger more distant set in comparison to a smaller closer one.  
+
+Even if the tagging resources are not available, some lexicons with morphological annotation are available \cite{derzhanski09}.  They can be integrated into the frameworks listed above to reduce the Out-Of-Vocabulary (OOV) rate.
+
+Systemic morphological mismatches can be corrected by comparing the frequency distribution of tagged and parsed wikipedias in the donor and recipient languages.
+
+\section{Experiment}
+\subsection{Sources of data}
+In this study we used UD datasets for the Slavonic language family, as well as the respective Wikipedias, in order to build resources for processing Ukrainian.
+
+We might also try Czech$\to$Polish.
+
+\begin{table}
+  \caption{Size of corpora in tokens}
+  \label{tabCorpora}
+  \begin{tabular}{lrr}
+    \textbf{Languages} 	& \textbf{Training} &\textbf{Wikipedia}\\
+    Bulgarian	&160K	&55M\\
+    Croatian	&82K	&40M\\
+    Czech	&1954K	&110M\\
+    Polish	&90K	&227M\\
+    Russian	&946K	&420M\\
+    Slovenian	&158K	&321M\\
+    Ukrainian	&-	&161M\\
+  \end{tabular}
+\end{table}
+
+
+
+\section{Results}
+\textbf{By March 2017}
+
+\textbf{Baseline accuracy for tagging and parsing}: Czech and Russian, this is a bit lower than what is reported in other studies, namely \cite{sharoff11dialog,straka16}, possibly because of the tagset conversion (??for Czech).
+
+Comparing various transfer options: $ru\to uk$ vs  $cd\to uk$ vs $cs+ru\to uk$ vs $cs+ru+uk_{morph}\to uk$
+
+Time for some linguistics?? \cite{manning11}, error analysis
+
+\section{Conclusions and future work}
+Not limited to Ukrainian.
+
+A link between rules and Machine Learning
+
+\bibliographystyle{apalike}
+\bibliography{references,serge}
+
+\end{document}

@@ -1,0 +1,86 @@
+\begin{thebibliography}{}
+
+\bibitem[Babych, 2016]{babych16}
+Babych, B. (2016).
+\newblock Graphonological levenshtein edit distance: Application for automated
+  cognate identification.
+\newblock In {\em Proc EAMT}.
+
+\bibitem[Brants, 2000]{brants00}
+Brants, T. (2000).
+\newblock {TnT} - a statistical part-of-speech tagger.
+\newblock In {\em Proc. of 6th Applied Natural Language Processing Conference},
+  pages 224--231, Seattle.
+
+\bibitem[Derzhanski and Kotsyba, 2009]{derzhanski09}
+Derzhanski, I. and Kotsyba, N. (2009).
+\newblock Towards a consistent morphological tagset for {Slavic} languages:
+  Extending {MULTEXT}-{East} for {Polish}, {Ukrainian} and {Belarusian}.
+\newblock In {\em Proc Mondilex Third Open Workshop}, pages 9--26.
+
+\bibitem[Erjavec, 2010]{erjavec10}
+Erjavec, T. (2010).
+\newblock Multext-{East} {Version} 4: Multilingual morphosyntactic
+  specifications, lexicons and corpora.
+\newblock In {\em Proc LREC}, Valletta, Malta.
+
+\bibitem[Hovy et~al., 2014]{hovy14}
+Hovy, D., Plank, B., and S{\o}gaard, A. (2014).
+\newblock When pos data sets don't add up: Combatting sample bias.
+\newblock In {\em Proc LREC}, pages 4472--4475.
+
+\bibitem[Manning, 2011]{manning11}
+Manning, C.~D. (2011).
+\newblock Part-of-speech tagging from 97\% to 100\%: is it time for some
+  linguistics?
+\newblock In {\em Computational Linguistics and Intelligent Text Processing},
+  pages 171--189. Springer.
+
+\bibitem[M{\"u}ller et~al., 2013]{muller13}
+M{\"u}ller, T., Schmid, H., and Sch{\"u}tze, H. (2013).
+\newblock Efficient higher-order crfs for morphological tagging.
+\newblock In {\em Proc EMNLP}, pages 322--332.
+
+\bibitem[Nivre et~al., 2016]{nivre16}
+Nivre, J., de~Marneffe, M.-C., Ginter, F., Goldberg, Y., Hajic, J., Manning,
+  C.~D., McDonald, R., Petrov, S., Pyysalo, S., Silveira, N., Tsarfaty, R., and
+  Zeman, D. (2016).
+\newblock Universal {Dependencies} v1: A multilingual treebank collection.
+\newblock In {\em Proc LREC 2016}.
+
+\bibitem[Nivre et~al., 2006]{nivre06malt}
+Nivre, J., Hall, J., and Nilsson, J. (2006).
+\newblock Maltparser: A data-driven parser-generator for dependency parsing.
+\newblock In {\em Proc LREC}, pages 2216--2219, Genoa.
+
+\bibitem[Reddy and Sharoff, 2011]{reddy11kannada}
+Reddy, S. and Sharoff, S. (2011).
+\newblock Cross language {POS} taggers (and other tools) for {Indian}
+  languages: An experiment with {Kannada} using {Telugu} resources.
+\newblock In {\em Proc IJCNLP'11}, Chiang Mai, Thailand.
+
+\bibitem[Schmid and Laws, 2008]{schmid08}
+Schmid, H. and Laws, F. (2008).
+\newblock Estimation of conditional probabilities with decision trees and an
+  application to fine-grained pos tagging.
+\newblock In {\em Proc COLING}, Dublin.
+
+\bibitem[Sharoff and Nivre, 2011]{sharoff11dialog}
+Sharoff, S. and Nivre, J. (2011).
+\newblock The proper place of men and machines in language technology:
+  Processing {Russian} without any linguistic knowledge.
+\newblock In {\em Proc Dialogue, Russian International Conference on
+  Computational Linguistics}, Bekasovo.
+
+\bibitem[Straka et~al., 2016]{straka16}
+Straka, M., Hajic, J., and Straková, J. (2016).
+\newblock Udpipe: Trainable pipeline for processing {CoNLL-U} files performing
+  tokenization, morphological analysis, {POS} tagging and parsing.
+\newblock In {\em Proc LREC 2016}.
+
+\bibitem[Zeman, 2008]{zeman08}
+Zeman, D. (2008).
+\newblock Reusable tagset conversion using tagset drivers.
+\newblock In {\em Proc LREC}.
+
+\end{thebibliography}
