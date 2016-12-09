@@ -150,7 +150,8 @@ class clGraphonolev(object):
 				# if F-Measure = 1 then feature vectors are identical; we need to subtract it from 1 (at the end):
 				# matrix[zz+1][sz+1] = min(matrix[zz+1][sz] + 1, matrix[zz][sz+1] + 1, matrix[zz][sz] + 1)
 				# Main work is here:
-				matrix[zz+1][sz+1] = min(matrix[zz+1][sz] + 1, matrix[zz][sz+1] + 1, matrix[zz][sz] + OneMinusFMeasure)
+				# matrix[zz+1][sz+1] = min(matrix[zz+1][sz] + 1, matrix[zz][sz+1] + 1, matrix[zz][sz] + OneMinusFMeasure)
+				matrix[zz+1][sz+1] = min(matrix[zz+1][sz] + 0.4, matrix[zz][sz+1] + 0.4, matrix[zz][sz] + OneMinusFMeasure)
 
 				# now classical levenshtein distance
 				# if s1[sz] == s2[zz]:

@@ -1,0 +1,67 @@
+[[github commands]]
+	
+1. create new repository
+	https://github.com/new
+	
+2. copy clone link:
+	from repository homepage
+		https://github.com/bogdanbabych/morphosyntax
+	https://github.com/bogdanbabych/morphosyntax.git
+	git@github.com:bogdanbabych/morphosyntax.git
+	
+3. cd to directory
+	cd /Users/bogdan/espace/pr201611morphosyntax/morphosyntax
+	
+4. for moving to a new directory, e.g., external hard drive or a server:
+	git clone https://github.com/bogdanbabych/morphosyntax.git
+	
+5. checking status
+	# change to the directory morphosyntax with the .git file
+	/Users/bogdan/espace/pr201611morphosyntax/morphosyntax
+	git status
+	
+6. checking differences for files
+	diff md070crosslevenshteinPhonV02TopCand.py md070crosslevenshteinPhonV03TopCzech.py
+	
+	
+7. Adding
+	git add *
+	git add -A
+
+8. Committing
+	git committ -m "message"
+
+9. Pushing
+	git push
+
+10. Pulling
+	git pull
+	
+11. Discarding changes
+	git checkout
+	
+
+
+
+[[Morphosyntax project]]
+Goal: develop a coherent model of 
+
+14/11/2016
+The project is developing a cognate identification metric via computing phonological levenshtein distance
+
+Tasks
+	- re-engineer matching modules (currently phonological representations is computed many times for the same word in a longer dictionary; cash phonological representation?)
+
+	- write in a 'distributionally clean' way
+
+15/11/2016
+next stage:
+	error analysis:
+		- find the scripts which can trace back for each pair of cognates how phonological distance has been computed
+
+
+9/12/2016
+	principle: keep a run separate in a non-synchronised directory:
+		important for multiple non-development related splits...
+		
+

@@ -1,1 +1,2 @@
-python3 md070crosslevenshteinPhon.py ../../../../../Indata/a030cognates/mcorpus/pattr-internet-ua-dict07.txt ../../../../../Indata/a030cognates/mcorpus/pattr-internet-ru-dict2.txt ua ru >../../../../../Indata/a030cognates/mcorpus/pattr-internet-crosslev-ua-ru07.txt
+# python3 md070crosslevenshteinPhon.py ../../../xdata/y2016riga-cog-ukru/pattr-internet-ua-dict07.txt ../../../xdata/y2016riga-cog-ukru/pattr-internet-ru-dict2.txt ua ru >../../../xdata/y2016riga-cog-ukru/pattr-internet-crosslev-ua-ru07.txt
+python3 md070crosslevenshteinPhon.py ../../../xdata/y2016riga-cog-ukru/pattr-internet-ua-dict07.txt ../../../xdata/y2016riga-cog-ukru/pattr-internet-ru-dict2.txt ua ru >../../../xdata/y2016riga-cog-ukru/pattr-internet-crosslev-ua-ru07.txt
