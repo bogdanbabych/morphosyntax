@@ -21,7 +21,7 @@ class clGraphonolev(object):
 	'''
 
 
-	def __init__(self, Debug = False):
+	def __init__(self, Debug = False, DebugFile = 'md060graphonolev-debug.txt', DebugMode = 'a'):
 		'''
 		Constructor
 		'''
@@ -30,7 +30,7 @@ class clGraphonolev(object):
 		self.BDebug = False
 		if Debug == True:
 			self.BDebug = True
-			self.FDebug = open('md060graphonolev-debug.txt', 'a')
+			self.FDebug = open(DebugFile, DebugMode)
 
 		
 	def readFeat(self):
@@ -149,9 +149,11 @@ class clGraphonolev(object):
 				# print('FMeasure ' + str(FMeasure))
 				# if F-Measure = 1 then feature vectors are identical; we need to subtract it from 1 (at the end):
 				# matrix[zz+1][sz+1] = min(matrix[zz+1][sz] + 1, matrix[zz][sz+1] + 1, matrix[zz][sz] + 1)
-				# Main work is here:
-				# matrix[zz+1][sz+1] = min(matrix[zz+1][sz] + 1, matrix[zz][sz+1] + 1, matrix[zz][sz] + OneMinusFMeasure)
-				matrix[zz+1][sz+1] = min(matrix[zz+1][sz] + 0.4, matrix[zz][sz+1] + 0.4, matrix[zz][sz] + OneMinusFMeasure)
+				
+				# Main work is here: # experimental question: 
+				matrix[zz+1][sz+1] = min(matrix[zz+1][sz] + 1, matrix[zz][sz+1] + 1, matrix[zz][sz] + OneMinusFMeasure)
+				# matrix[zz+1][sz+1] = min(matrix[zz+1][sz] + 0.4, matrix[zz][sz+1] + 0.4, matrix[zz][sz] + OneMinusFMeasure)
+				# insertion cost adjustment -- revert to 1 or lowering to 0.4 ?
 
 				# now classical levenshtein distance
 				# if s1[sz] == s2[zz]:

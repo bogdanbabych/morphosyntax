@@ -3,4 +3,5 @@
 # head -n 20 <cs.num | tail -n 10 >cs-t00020.num
 # head -n 30 <cs.num | tail -n 10 >cs-t00030.num
 
-python3 md070crosslevenshteinPhonV03TopCzech.py ../../../xdata/morpho/cs-t00010.num ../../../xdata/morpho/ru.num en ru >../../../xdata/morpho/cs-ru-crosslevV03TopCzech.txt
+# python3 md070crosslevenshteinPhonV03TopCzech.py ../../../xdata/morpho/cs-t00010.num ../../../xdata/morpho/ru.num en ru >../../../xdata/morpho/cs-ru-crosslevV03TopCzech.txt
+python3 md070crosslevenshteinPhonV03TopCzech.py ../../../xdata/morpho/uk2k-1049.num ../../../xdata/morpho/ru.num ua ru >../../../xdata/morpho/uk-ru-crosslevV03-1049.txt

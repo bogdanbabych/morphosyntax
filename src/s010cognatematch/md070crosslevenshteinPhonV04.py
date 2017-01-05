@@ -20,9 +20,12 @@ class clCrossLevenshtein(object):
         '''
         Constructor
         '''
-        FDebug = open('md050crosslevenshtein.debug', 'w')
+        SNameIName , SNameIExt = os.path.splitext(SFInA) # generate the debug using the first file name
+        SFDebug = SNameIName + '-md050crosslevenshtein.debug'
+        # FDebug = open(SFDebug, 'w') # debug file for each of the input files.. 
         LWordsA = self.readWordList(SFInA)
         LWordsB = self.readWordList(SFInB) # graphonological object with phonological features over graphemes
+        # OGraphonolev = md060graphonoLev.clGraphonolev(Debug = True, DebugFile = SFDebug)
         OGraphonolev = md060graphonoLev.clGraphonolev()
 
         
@@ -38,7 +41,7 @@ class clCrossLevenshtein(object):
             LCognates = []
             LCognates1 = []
             ICounter += 1
-            if ICounter % 5 == 0:
+            if ICounter % 1 == 0:
                 sys.stderr.write(SWordA + ' ' + str(ICounter) + '\n')
 
             
@@ -54,11 +57,15 @@ class clCrossLevenshtein(object):
                     LCognates.append((ALevNorm, ILev, SWordB, SPoSB, IFrqB))
             '''
             for (SWordB, SPoSB, IFrqB) in LWordsB:
+                # Lev0 is baseline Levenshtein distance
+                # Lev1 is is graphonological Levenshtein distance
                 (Lev0, Lev1, Lev0Norm, Lev1Norm) = OGraphonolev.computeLevenshtein(SWordA, SWordB, SLangIDa, SLangIDb)
-                if Lev0Norm <= 0.36:
-                    LCognates.append((Lev0Norm, Lev0, SWordB, SPoSB, IFrqB))
-                if Lev1Norm <= 0.36:
-                    LCognates1.append((Lev1Norm, Lev1, SWordB, SPoSB, IFrqB))
+                # if Lev0Norm <= 0.36:
+                if Lev0Norm <= 0.4:
+                    LCognates.append((Lev0Norm, Lev0, SWordB, SPoSB, IFrqB)) # baseline Lev
+                # if Lev1Norm <= 0.36:
+                if Lev1Norm <= 0.4:
+                    LCognates1.append((Lev1Norm, Lev1, SWordB, SPoSB, IFrqB)) # graphonological Lev
             
             
             LDistances.append((SWordA, SPoSA, IFrqA, LCognates))
@@ -67,13 +74,15 @@ class clCrossLevenshtein(object):
                 ACognPerCent = ICounterRec / ICounter
                 # now restricted to writing only one cognate...
                 # sys.stdout.write('\t{, %(ICounterRec)d, %(ICounter)d, %(SWordA)s, %(SPoSA)s, frq=%(IFrqA)d, ln=%(LogFrqA).2f, have-cognates: %(ACognPerCent).2f : \n' % locals())
-                sys.stdout.write('%(SWordA)s\t%(SPoSA)s\tfrq=%(IFrqA)d\t' % locals())
+                sys.stdout.write('%(SWordA)s\t%(SPoSA)s\tfrq=%(IFrqA)d\t\n' % locals())
                 sys.stdout.flush()
+                sys.stdout.write('BASELINE:\n')
                 self.printCognates(LCognates, LogFrqA, SPoSA)
                 sys.stdout.write('\t')
+                sys.stdout.write('GRAPHONOLOGICAL:\n')
                 self.printCognates(LCognates1, LogFrqA, SPoSA)
                 #
-                sys.stdout.write('\n')
+                sys.stdout.write('\n\n')
                 sys.stdout.flush()
             
         '''
@@ -88,7 +97,8 @@ class clCrossLevenshtein(object):
                     
     def printCognates(self, LCognates, LogFrqA, SPoSA):
         ICogRank = 0
-        for (ALevNorm, ILev, SWordB, SPoSB, IFrqB) in sorted(LCognates, reverse=False, key=lambda k: k[0]):
+        ALevNormPrev = -1
+        for (ALevNorm, ILev, SWordB, SPoSB, IFrqB) in sorted(LCognates, reverse=False, key=lambda k: k[0]): # why reverse is False: starting from smallest
             try:
                 LogFrqB = math.log(IFrqB)
             except:
@@ -97,28 +107,51 @@ class clCrossLevenshtein(object):
                 AFrqRange = min(LogFrqB, LogFrqA) / max(LogFrqB, LogFrqA)
             except:
                 AFrqRange = 0
-            if (SPoSB == SPoSA) and (AFrqRange > 0.5 ):
+            
+            sys.stdout.write('\tFrqRange=' + str(AFrqRange) + '\t' + SPoSB + '\t' + SPoSA + '\t')
+
+            if (ALevNorm != ALevNormPrev):
                 ICogRank += 1
+            ALevNormPrev = ALevNorm
+
+            if ((SPoSB == SPoSA) and (ICogRank == 1)):
+                sys.stdout.write('--> %(SWordB)s\t%(SPoSB)s\t%(IFrqB)d\tPhLev=%(ILev).2f\tPhLevNormLen=%(ALevNorm).2f\n' % locals())
+                
+            
+            sys.stdout.write('\nTRACE:\n')
+            if ((SPoSB == SPoSA) and (AFrqRange > 0.5 )):
+                # ICogRank += 1
                 #
                 # sys.stdout.write('\t\trank=%(ICogRank)d, %(AFrqRange).3f, %(ILev).3f, %(ALevNorm).3f, %(SWordB)s, %(SPoSB)s, %(IFrqB)d, ln=%(LogFrqB).2f\n' % locals())
-                sys.stdout.write('%(SWordB)s\t%(SPoSB)s\t%(IFrqB)d' % locals()) 
-                break # record only one item...
-            else:
-                pass
-                # sys.stdout.write('\t\t--, %(AFrqRange).3f, %(ILev).3f, %(ALevNorm).3f, %(SWordB)s, %(SPoSB)s, %(IFrqB)d, ln=%(LogFrqB).2f\n' % locals())
+                sys.stdout.write('%(SWordB)s\t%(SPoSB)s\t%(IFrqB)d\tPhLev=%(ILev).2f\tPhLevNormLen=%(ALevNorm).2f\n' % locals()) 
+                ## temp: record a list of items 
+                ## break # record only one item...
+            elif((SPoSB == SPoSA) and (AFrqRange <= 0.5)):
                 
+                sys.stdout.write('REJECTED-FRQ: %(SWordB)s\t%(SPoSB)s\t%(IFrqB)d\tPhLev=%(ILev).2f\tPhLevNormLen=%(ALevNorm).2f\n' % locals()) 
+            elif((SPoSB != SPoSA) and (AFrqRange > 0.5 )):
+                sys.stdout.write('REJECTED-POS: %(SWordB)s\t%(SPoSB)s\t%(IFrqB)d\tPhLev=%(ILev).2f\tPhLevNormLen=%(ALevNorm).2f\n' % locals()) 
+                ## pass
+                # sys.stdout.write('\t\t--, %(AFrqRange).3f, %(ILev).3f, %(ALevNorm).3f, %(SWordB)s, %(SPoSB)s, %(IFrqB)d, ln=%(LogFrqB).2f\n' % locals())
+            elif((SPoSB != SPoSA) and (AFrqRange <= 0.5 )):
+                sys.stdout.write('REJECTED-FPS: %(SWordB)s\t%(SPoSB)s\t%(IFrqB)d\tPhLev=%(ILev).2f\tPhLevNormLen=%(ALevNorm).2f\n' % locals())
+            else:
+                sys.stdout.write('REJECTED-OTH: %(SWordB)s\t%(SPoSB)s\t%(IFrqB)d\tPhLev=%(ILev).2f\tPhLevNormLen=%(ALevNorm).2f\n' % locals()) 
         # sys.stdout.write('\t}\n')
+        sys.stdout.write('\n')
         sys.stdout.flush()
 
         
-    def readWordList(self, SFIn):
+    def readWordList(self, SFIn): # modified to adjust to Czech
         LWords = []
         for SLine in open(SFIn, 'rU'):
             try:
-                LLine = re.split('\t', SLine)
-                SWord = LLine[0] 
-                SPoS = LLine[1]
-                IFrq = int(LLine[2])
+                SLine = SLine.rstrip()
+                SLine = SLine.lstrip()
+                LLine = re.split('[\t ]+', SLine)
+                SWord = LLine[1] 
+                SPoS = LLine[2]
+                IFrq = int(LLine[0])
             except:
                 continue
             

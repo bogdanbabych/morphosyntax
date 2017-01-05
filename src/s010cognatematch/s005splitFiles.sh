@@ -1,0 +1,1 @@
+python3 s005splitFiles.py ../../../xdata/morpho/uk2k.num

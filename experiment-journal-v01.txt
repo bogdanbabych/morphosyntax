@@ -29,7 +29,12 @@
 	git add -A
 
 8. Committing
-	git committ -m "message"
+	git commit -m "message"
+	
+	>> if hit
+	git commit
+		without a message, then press:
+		ESC + :wq + ENTER
 
 9. Pushing
 	git push
@@ -40,7 +45,7 @@
 11. Discarding changes
 	git checkout
 	
-
++ user rsync to synchronise data folders...
 
 
 [[Morphosyntax project]]
@@ -65,3 +70,87 @@ next stage:
 		important for multiple non-development related splits...
 		
 
+14/12/2016
+	task: debugging Ukrainian system
+	task: developing a proper engineering framework
+		>> modules for processing and self-documentation/evaluation....
+		>> calibrating thresholds
+		>> testing feature structures, use of the table / hierarchy;
+		>> replicating results reported in previous experiments
+			>> to set up the issue of replicability of the results...
+			
+	task: debug: output only top N items... >> cashing the tables for each item, or re-running them ??? 
+	>>> top scores and then calling the module wiht the debug turned on
+
+
+04/01/2017
+	recreate run / development path
+	develop evaluation sets
+	optimising the development >> finding cognates; understanding limits...
+	
+	engineering for output design... 
+	>> translating Ukrainian word forms...
+	>> vision: Ukrainian morphosyntax... 
+		
+		
+[[todo]]
+	9/12/2016
+	1. run for Ukrainian and Russian; 
+		run for Czech and Russian;
+		
+	2. develop a system for error detection
+	
+	3. optimising for speed...
+	
+	
+	>> Ukrainian corpus:
+		- capitalization problem...
+		- language detection problem...
+		
+		
+		
+[[STAGES]]
+
+	0. creating Ukrainian NUM file:
+		cwb-scan-corpus -C INTERNET-UA word pos | sort -nr -k 1 > internet-ua-num.txt
+		cwb-decode -C INTERNET-UA -ALL > internet-ua-out.txt
+		cwb-decode -P word -P pos -P lemma INTERNET-UA > internet-ua-out.txt
+		cwb-decode -h
+		
+		// cwb-decode INTERNET-UA
+		// cwb-decode -P word -P lemma -P POS INTERNET-UA
+		// 
+		
+		Serge's suggestion:
+			cwb-decode -C INTERNET-UA -P word -P pos | sed -r 's/\t([A-Z]).+/\t\1/' | gawk '{print(tolower($0))}' | sort | uniq -c | sort -nr -k 1 >uk-forms.num
+		
+		
+		// identified problems:
+		a. capitalization
+		b. russian words / letters in the corpus
+		
+
+	1. Debugging:
+		head -n 1000000 <V04uk2k-1052x-md050crosslevenshtein.debug | tail -n 10000 >V04uk2k-1052x-md050crosslevenshteinH10k-mid1m.debug
+		tail -n 10000 <V04uk2k-1052x-md050crosslevenshtein.debug >V04uk2k-1052x-md050crosslevenshteinT10k.debug
+		command to select debug info...
+		
+	
+	task: 
+		to return all items of the same top rank;
+			>> baseline and graphonological... >>
+			remove frequency filter; only use PoS filter...
+			
+		return several items ... of the same rank == calculating ranks;
+		speed up of calculation:
+			>> comparing vector spaces:
+				>> the concept of the vector subspace...
+				>> can this be modelled by structure feature representation...
+				
+	
+	4/01/2017
+	solution: the problem is in the filter
+	
+		
+
+			
