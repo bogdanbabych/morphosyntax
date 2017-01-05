@@ -1,0 +1,81 @@
+23,25c23
+<         SNameIName , SNameIExt = os.path.splitext(SFInA) # generate the debug using the first file name
+<         SFDebug = SNameIName + '-md050crosslevenshtein.debug'
+<         # FDebug = open(SFDebug, 'w') # debug file for each of the input files.. 
+---
+>         FDebug = open('md050crosslevenshtein.debug', 'w')
+28d25
+<         # OGraphonolev = md060graphonoLev.clGraphonolev(Debug = True, DebugFile = SFDebug)
+44c41
+<             if ICounter % 1 == 0:
+---
+>             if ICounter % 5 == 0:
+60,61d56
+<                 # Lev0 is baseline Levenshtein distance
+<                 # Lev1 is is graphonological Levenshtein distance
+65c60
+<                     LCognates.append((Lev0Norm, Lev0, SWordB, SPoSB, IFrqB)) # baseline Lev
+---
+>                     LCognates.append((Lev0Norm, Lev0, SWordB, SPoSB, IFrqB))
+68c63
+<                     LCognates1.append((Lev1Norm, Lev1, SWordB, SPoSB, IFrqB)) # graphonological Lev
+---
+>                     LCognates1.append((Lev1Norm, Lev1, SWordB, SPoSB, IFrqB))
+77c72
+<                 sys.stdout.write('%(SWordA)s\t%(SPoSA)s\tfrq=%(IFrqA)d\t\n' % locals())
+---
+>                 sys.stdout.write('%(SWordA)s\t%(SPoSA)s\tfrq=%(IFrqA)d\t' % locals())
+79d73
+<                 sys.stdout.write('BASELINE:\n')
+82d75
+<                 sys.stdout.write('GRAPHONOLOGICAL:\n')
+85c78
+<                 sys.stdout.write('\n\n')
+---
+>                 sys.stdout.write('\n')
+100,101c93
+<         ALevNormPrev = -1
+<         for (ALevNorm, ILev, SWordB, SPoSB, IFrqB) in sorted(LCognates, reverse=False, key=lambda k: k[0]): # why reverse is False: starting from smallest
+---
+>         for (ALevNorm, ILev, SWordB, SPoSB, IFrqB) in sorted(LCognates, reverse=False, key=lambda k: k[0]):
+110,113c102
+<             
+<             sys.stdout.write('\tFrqRange=' + str(AFrqRange) + '\t' + SPoSB + '\t' + SPoSA + '\t')
+< 
+<             if (ALevNorm != ALevNormPrev):
+---
+>             if (SPoSB == SPoSA) and (AFrqRange > 0.5 ):
+115,123d103
+<             ALevNormPrev = ALevNorm
+< 
+<             if ((SPoSB == SPoSA) and (ICogRank == 1)):
+<                 sys.stdout.write('--> %(SWordB)s\t%(SPoSB)s\t%(IFrqB)d\tPhLev=%(ILev).2f\tPhLevNormLen=%(ALevNorm).2f\n' % locals())
+<                 
+<             
+<             sys.stdout.write('\nTRACE:\n')
+<             if ((SPoSB == SPoSA) and (AFrqRange > 0.5 )):
+<                 # ICogRank += 1
+126,137c106,107
+<                 sys.stdout.write('%(SWordB)s\t%(SPoSB)s\t%(IFrqB)d\tPhLev=%(ILev).2f\tPhLevNormLen=%(ALevNorm).2f\n' % locals()) 
+<                 ## temp: record a list of items 
+<                 ## break # record only one item...
+<             elif((SPoSB == SPoSA) and (AFrqRange <= 0.5)):
+<                 
+<                 sys.stdout.write('REJECTED-FRQ: %(SWordB)s\t%(SPoSB)s\t%(IFrqB)d\tPhLev=%(ILev).2f\tPhLevNormLen=%(ALevNorm).2f\n' % locals()) 
+<             elif((SPoSB != SPoSA) and (AFrqRange > 0.5 )):
+<                 sys.stdout.write('REJECTED-POS: %(SWordB)s\t%(SPoSB)s\t%(IFrqB)d\tPhLev=%(ILev).2f\tPhLevNormLen=%(ALevNorm).2f\n' % locals()) 
+<                 ## pass
+<                 # sys.stdout.write('\t\t--, %(AFrqRange).3f, %(ILev).3f, %(ALevNorm).3f, %(SWordB)s, %(SPoSB)s, %(IFrqB)d, ln=%(LogFrqB).2f\n' % locals())
+<             elif((SPoSB != SPoSA) and (AFrqRange <= 0.5 )):
+<                 sys.stdout.write('REJECTED-FPS: %(SWordB)s\t%(SPoSB)s\t%(IFrqB)d\tPhLev=%(ILev).2f\tPhLevNormLen=%(ALevNorm).2f\n' % locals())
+---
+>                 sys.stdout.write('%(SWordB)s\t%(SPoSB)s\t%(IFrqB)d\tPhLev=%(ILev).2f\tPhLevNormLen=%(ALevNorm).2f' % locals()) 
+>                 break # record only one item...
+139c109,111
+<                 sys.stdout.write('REJECTED-OTH: %(SWordB)s\t%(SPoSB)s\t%(IFrqB)d\tPhLev=%(ILev).2f\tPhLevNormLen=%(ALevNorm).2f\n' % locals()) 
+---
+>                 pass
+>                 # sys.stdout.write('\t\t--, %(AFrqRange).3f, %(ILev).3f, %(ALevNorm).3f, %(SWordB)s, %(SPoSB)s, %(IFrqB)d, ln=%(LogFrqB).2f\n' % locals())
+>                 
+141d112
+<         sys.stdout.write('\n')
