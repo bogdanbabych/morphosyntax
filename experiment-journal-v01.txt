@@ -153,4 +153,31 @@ next stage:
 	
 		
 
+===========
+
+records for the paper on evaluation and topology of features:
+goal: to establish a framework for evaluation topology of features
+	>> on the basis of lists of cognates
+	
+	1. evaluation scenario
+		- read cognates produced/found by my algorithm --> 2 ways: 
+			- top 1 and top 10 >>
+		- read cognates from the evaluation set;
+		- compare;
+		
+		-- generate ~ 3000
+		
+		// critical point: to re-run the algorithm...
+		// run on a cluster and re-generate ...
+	2. producing evaluation results
+	3. producing configurations
+	4. testing configurations
+	
+	
+	
+	
+	
+	
+	
+
 			
