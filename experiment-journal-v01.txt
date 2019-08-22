@@ -167,6 +167,11 @@ goal: to establish a framework for evaluation topology of features
 		
 		-- generate ~ 3000
 		
+		> stage 010 -- normalise pos tags for uk-forms.num file
+		> stage 020 -- create evaluation set by intersecting uk-forms.num + dict-uk-ru-uk*.txt
+		> stage 030 -- change the output format for automatically computing evaluation results
+		> stage 040 -- run pilot evaluation
+		
 		// critical point: to re-run the algorithm...
 		// run on a cluster and re-generate ...
 	2. producing evaluation results
@@ -174,10 +179,308 @@ goal: to establish a framework for evaluation topology of features
 	4. testing configurations
 	
 	
+
+working directory:
+cd /Volumes/G-DRIVE\ mobile\ with\ Thunderbolt/espace/pr201611morphosyntax/morphosyntax/src/s010cognatematch
 	
 	
 	
 	
 	
+=====
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1002.num.sh
+Your job 4101039 ("uk2ru-cognatesV09-1002.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1002.num.sh
+Your job 4101040 ("uk2ru-cognatesV09-1002.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1002.num-o.sh
+Your job 4101046 ("uk2ru-cognatesV09-1002.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1003.num-o.sh
+Your job 4101049 ("uk2ru-cognatesV09-1003.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1003.num.sh
+Your job 4101050 ("uk2ru-cognatesV09-1003.num.sh") has been submitted
+
+
+
+
+
+
+=====
+
+
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1003.num.sh
+Your job 4101050 ("uk2ru-cognatesV09-1003.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1004.num-o.sh
+Your job 4101051 ("uk2ru-cognatesV09-1004.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1004.num.sh
+Your job 4101052 ("uk2ru-cognatesV09-1004.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1005.num-o.sh
+Your job 4101053 ("uk2ru-cognatesV09-1005.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1005.num.sh
+Your job 4101054 ("uk2ru-cognatesV09-1005.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1006.num-o.sh
+Your job 4101055 ("uk2ru-cognatesV09-1006.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1006.num.sh
+Your job 4101056 ("uk2ru-cognatesV09-1006.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1007.num-o.sh
+Your job 4101057 ("uk2ru-cognatesV09-1007.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1007.num.sh
+Your job 4101058 ("uk2ru-cognatesV09-1007.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1008.num-o.sh
+Your job 4101059 ("uk2ru-cognatesV09-1008.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1008.num.sh
+Your job 4101060 ("uk2ru-cognatesV09-1008.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1009.num-o.sh
+Your job 4101061 ("uk2ru-cognatesV09-1009.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1009.num.sh
+Your job 4101062 ("uk2ru-cognatesV09-1009.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1010.num-o.sh
+Your job 4101063 ("uk2ru-cognatesV09-1010.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1010.num.sh
+Your job 4101064 ("uk2ru-cognatesV09-1010.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1011.num-o.sh
+Your job 4101065 ("uk2ru-cognatesV09-1011.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1011.num.sh
+Your job 4101066 ("uk2ru-cognatesV09-1011.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1012.num-o.sh
+Your job 4101067 ("uk2ru-cognatesV09-1012.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1012.num.sh
+Your job 4101068 ("uk2ru-cognatesV09-1012.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1013.num-o.sh
+Your job 4101069 ("uk2ru-cognatesV09-1013.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1013.num.sh
+Your job 4101070 ("uk2ru-cognatesV09-1013.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1014.num-o.sh
+Your job 4101071 ("uk2ru-cognatesV09-1014.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1014.num.sh
+Your job 4101072 ("uk2ru-cognatesV09-1014.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1015.num-o.sh
+Your job 4101073 ("uk2ru-cognatesV09-1015.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1015.num.sh
+Your job 4101074 ("uk2ru-cognatesV09-1015.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1016.num-o.sh
+Your job 4101075 ("uk2ru-cognatesV09-1016.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1016.num.sh
+Your job 4101076 ("uk2ru-cognatesV09-1016.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1017.num-o.sh
+Your job 4101077 ("uk2ru-cognatesV09-1017.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1017.num.sh
+Your job 4101078 ("uk2ru-cognatesV09-1017.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1018.num-o.sh
+Your job 4101079 ("uk2ru-cognatesV09-1018.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1018.num.sh
+Your job 4101080 ("uk2ru-cognatesV09-1018.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1019.num-o.sh
+Your job 4101081 ("uk2ru-cognatesV09-1019.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1019.num.sh
+Your job 4101082 ("uk2ru-cognatesV09-1019.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1020.num-o.sh
+Your job 4101083 ("uk2ru-cognatesV09-1020.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1020.num.sh
+Your job 4101084 ("uk2ru-cognatesV09-1020.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1021.num-o.sh
+Your job 4101085 ("uk2ru-cognatesV09-1021.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1021.num.sh
+Your job 4101086 ("uk2ru-cognatesV09-1021.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1022.num-o.sh
+Your job 4101087 ("uk2ru-cognatesV09-1022.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1022.num.sh
+Your job 4101088 ("uk2ru-cognatesV09-1022.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1023.num-o.sh
+Your job 4101089 ("uk2ru-cognatesV09-1023.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1023.num.sh
+Your job 4101090 ("uk2ru-cognatesV09-1023.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1024.num-o.sh
+Your job 4101091 ("uk2ru-cognatesV09-1024.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1024.num.sh
+Your job 4101092 ("uk2ru-cognatesV09-1024.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1025.num-o.sh
+Your job 4101093 ("uk2ru-cognatesV09-1025.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1025.num.sh
+Your job 4101094 ("uk2ru-cognatesV09-1025.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1026.num-o.sh
+Your job 4101095 ("uk2ru-cognatesV09-1026.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1026.num.sh
+Your job 4101096 ("uk2ru-cognatesV09-1026.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1027.num-o.sh
+Your job 4101097 ("uk2ru-cognatesV09-1027.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1027.num.sh
+Your job 4101098 ("uk2ru-cognatesV09-1027.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1028.num-o.sh
+Your job 4101099 ("uk2ru-cognatesV09-1028.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1028.num.sh
+Your job 4101100 ("uk2ru-cognatesV09-1028.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1029.num-o.sh
+Your job 4101101 ("uk2ru-cognatesV09-1029.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1029.num.sh
+Your job 4101102 ("uk2ru-cognatesV09-1029.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1030.num-o.sh
+Your job 4101103 ("uk2ru-cognatesV09-1030.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1030.num.sh
+Your job 4101104 ("uk2ru-cognatesV09-1030.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1031.num-o.sh
+Your job 4101105 ("uk2ru-cognatesV09-1031.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1031.num.sh
+Your job 4101106 ("uk2ru-cognatesV09-1031.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1032.num-o.sh
+Your job 4101107 ("uk2ru-cognatesV09-1032.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1032.num.sh
+Your job 4101108 ("uk2ru-cognatesV09-1032.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1033.num-o.sh
+Your job 4101109 ("uk2ru-cognatesV09-1033.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1033.num.sh
+Your job 4101110 ("uk2ru-cognatesV09-1033.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1034.num-o.sh
+Your job 4101111 ("uk2ru-cognatesV09-1034.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1034.num.sh
+Your job 4101112 ("uk2ru-cognatesV09-1034.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1035.num-o.sh
+Your job 4101113 ("uk2ru-cognatesV09-1035.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1035.num.sh
+Your job 4101114 ("uk2ru-cognatesV09-1035.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1036.num-o.sh
+Your job 4101115 ("uk2ru-cognatesV09-1036.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1036.num.sh
+Your job 4101116 ("uk2ru-cognatesV09-1036.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1037.num-o.sh
+Your job 4101117 ("uk2ru-cognatesV09-1037.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1037.num.sh
+Your job 4101118 ("uk2ru-cognatesV09-1037.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1038.num-o.sh
+Your job 4101119 ("uk2ru-cognatesV09-1038.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1038.num.sh
+Your job 4101120 ("uk2ru-cognatesV09-1038.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1039.num-o.sh
+Your job 4101121 ("uk2ru-cognatesV09-1039.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1039.num.sh
+Your job 4101122 ("uk2ru-cognatesV09-1039.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1040.num-o.sh
+Your job 4101123 ("uk2ru-cognatesV09-1040.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1040.num.sh
+Your job 4101124 ("uk2ru-cognatesV09-1040.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1041.num-o.sh
+Your job 4101125 ("uk2ru-cognatesV09-1041.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1041.num.sh
+Your job 4101126 ("uk2ru-cognatesV09-1041.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1042.num-o.sh
+Your job 4101127 ("uk2ru-cognatesV09-1042.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1042.num.sh
+Your job 4101128 ("uk2ru-cognatesV09-1042.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1043.num-o.sh
+Your job 4101129 ("uk2ru-cognatesV09-1043.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1043.num.sh
+Your job 4101130 ("uk2ru-cognatesV09-1043.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1044.num-o.sh
+Your job 4101131 ("uk2ru-cognatesV09-1044.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1044.num.sh
+Your job 4101132 ("uk2ru-cognatesV09-1044.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1045.num-o.sh
+Your job 4101133 ("uk2ru-cognatesV09-1045.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1045.num.sh
+Your job 4101134 ("uk2ru-cognatesV09-1045.num.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1046.num-o.sh
+Your job 4101135 ("uk2ru-cognatesV09-1046.num-o.sh") has been submitted
+
+[smlbb@login2.arc2 s010cognatematch]$ qsub -l h_rt=10:00:00 uk2ru-cognatesV09-1046.num.sh
+Your job 4101136 ("uk2ru-cognatesV09-1046.num.sh") has been submitted
+
+
+
+-----
+
+
+
+smlbb@login2.arc2 s010cognatematch]$ module add python/3.3.2
+
 
 			

@@ -21,6 +21,10 @@ class cSplitFile(object):
 		SFNameO = SNameInm + '-1000' + SNameIext
 		# FNameI = open(SFNameI, 'rU')
 		FNameO = open(SFNameO, 'w')
+
+		SFNameSh = SFNameO + '.sh'
+		FNameSh = open(SFNameSh, 'w')
+		FNameSh.write('python3 md070crosslevenshteinPhonV09.py %(SFNameO)s ../../../xdata/morpho/ru.num ua ru >%(SFNameO)s.res\n' % locals())
 		i = 0
 		k = 0
 		# with codecs.open(SFNameI, "r",encoding='utf-8', errors='ignore') as FNameI:
@@ -59,6 +63,11 @@ class cSplitFile(object):
 				SFNameO = SNameInm + '-' + str(k0) + SNameIext
 				FNameO.close()
 				FNameO = open(SFNameO, 'w')
+
+				SFNameSh = SFNameO + '.sh'
+				FNameSh.close()
+				FNameSh = open(SFNameSh, 'w')
+				FNameSh.write('python3 md070crosslevenshteinPhonV09.py %(SFNameO)s ../../../xdata/morpho/ru.num ua ru >%(SFNameO)s.res\n' % locals())
 			
 			
 	def mapPoS(self, SPoS):

@@ -1,1 +1,1 @@
-python3 s005splitFiles.py ../../../xdata/morpho/uk2k.num
+python3 s005splitFiles.py ../../../xdata/morpho/uk2k.num 30
